@@ -62,7 +62,7 @@ function AnswerForm({showForm,setShowForm,type='add',questionId,initialData}: An
 
   return (
     <Modal isOpen={showForm} onOpenChange={()=>setShowForm(false)} size='4xl'>
-        <ModalContent>
+        <ModalContent className="overflow-y-auto h-[300px]">
             <div className='p-5 flex flex-col gap-5'>
                 {type === 'add' ? <h1 className='text-primary text-xl'>Write an answer</h1> : <h1 className='text-primary text-xl'>Edit answer</h1>}
 
