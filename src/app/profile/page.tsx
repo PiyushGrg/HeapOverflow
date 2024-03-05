@@ -23,7 +23,7 @@ async function ProfilePage({searchParams}:{searchParams: any}) {
   const tab = searchParams.tab || 'asked';
 
   if (tab === 'asked') {
-    askedQ = await Question.find({user: mongoId}).sort({updatedAt: -1}).populate("user");
+    askedQ = await Question.find({user: mongoId}).sort({createdAt: -1}).populate("user");
   } 
 
   if(tab === 'answered') {

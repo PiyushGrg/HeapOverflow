@@ -24,7 +24,7 @@ function QuestionCard({question}: {question: IQuestion}) {
 
             <div className='flex gap-10 text-xs flex-wrap'>
                 <span>
-                    Asked On <span className='text-primary'>{dateTimeFormat(question.updatedAt)}</span>
+                    Asked On <span className='text-primary'>{dateTimeFormat(question.createdAt)}</span>
                 </span>
 
                 <span>

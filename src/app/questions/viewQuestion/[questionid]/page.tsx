@@ -32,7 +32,7 @@ async function ViewQuestion({params}: ViewQuestionProps) {
           
           <div className='flex gap-5 md:gap-10 text-xs mt-2'>
             <span>
-              Asked On <span className='text-primary'>{dateTimeFormat(question.updatedAt)}</span>
+              Asked On <span className='text-primary'>{dateTimeFormat(question.createdAt)}</span>
             </span>
 
             <Link href={`/users/${question.user._id}`}>

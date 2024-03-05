@@ -40,7 +40,7 @@ export default async function Home({searchParams}: HomeProps) {
     };
   }
 
-  const questions: IQuestion[] = await Question.find(filtersObject).sort({ updatedAt: -1 }).populate("user");
+  const questions: IQuestion[] = await Question.find(filtersObject).sort({ createdAt: -1 }).populate("user");
 
 
   return (

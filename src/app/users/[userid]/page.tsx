@@ -17,7 +17,7 @@ interface userInfoProps {
 async function userInfo({ params }: userInfoProps) {
 
   const userData: any = await User.findById(params.userid);
-  const questions: IQuestion[] = await Question.find({user: params.userid,}).sort({updatedAt: -1}).populate("user");
+  const questions: IQuestion[] = await Question.find({user: params.userid,}).sort({createdAt: -1}).populate("user");
   
   return (
     <div>
