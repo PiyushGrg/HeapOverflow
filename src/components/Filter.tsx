@@ -11,11 +11,15 @@ function Filter() {
   const tag = searchParams.get('tag');
 
   useEffect(() => {
-    if(!tag){
-      setTimeout(()=>{
+    const redirectTimeout = setTimeout(() => {
+      if (!tag) {
         router.push(`/?search=${search}`);
-      },300);
-    }
+      }
+    }, 300);
+
+    return () => {
+      clearTimeout(redirectTimeout); // Cleanup function to clear the timeout when component unmounts or dependency changes
+    };
   }, [search]);
 
 
