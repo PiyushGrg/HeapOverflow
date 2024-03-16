@@ -13,7 +13,7 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
-import logo from "../../public/logo.png";
+// import logo from "../../public/logo.png";
 
 interface AirbnbReviewEmailProps {
   authorName: string;
