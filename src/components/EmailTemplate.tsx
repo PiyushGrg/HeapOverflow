@@ -59,10 +59,10 @@ const AirbnbReviewEmail = ({
           </Section>
           <Section style={{ paddingBottom: "20px" }}>
             <Row>
-              <Text style={heading}>Here's what {authorName} answered</Text>
+              <Text style={heading}>Here&apos;s what {authorName} answered</Text>
               <Text style={review}>{reviewText}</Text>
               <Text style={paragraph}>
-                You can read the full answer by clicking the button below. You can also leave a comment for {authorName} if you'd like.
+                You can read the full answer by clicking the button below. You can also leave a comment for {authorName} if you&apos;d like.
               </Text>
               <Text style={{ ...paragraph, paddingBottom: "16px" }}>
                 Thanks for using HeapOverflow!
