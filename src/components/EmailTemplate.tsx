@@ -13,7 +13,6 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
-// import logo from "../../public/logo.png";
 
 interface AirbnbReviewEmailProps {
   authorName: string;
@@ -21,8 +20,6 @@ interface AirbnbReviewEmailProps {
   reviewText: string;
   questionId: string;
 }
-
-const baseUrl = `https://${process.env.VERCEL_URL}`
 
 const AirbnbReviewEmail = ({
   authorName,
@@ -42,9 +39,9 @@ const AirbnbReviewEmail = ({
         <Container style={container}>
           <Section>
             <Img
-              src={`${baseUrl}/static/logo.png`}
-              width="96"
-              height="30"
+              src={`https://raw.githubusercontent.com/AnkitBhalla19/heapoverflowlogo/main/HeapOverflow_logo.png`}
+              width="125"
+              height="140"
               alt="HeapOverflow"
             />
           </Section>
