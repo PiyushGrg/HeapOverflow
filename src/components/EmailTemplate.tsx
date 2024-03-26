@@ -39,7 +39,7 @@ const AirbnbReviewEmail = ({
         <Container style={container}>
           <Section>
             <Img
-              src={`https://raw.githubusercontent.com/AnkitBhalla19/heapoverflowlogo/main/HeapOverflow_logo.png`}
+              src="https://raw.githubusercontent.com/AnkitBhalla19/heapoverflowlogo/main/HeapOverflow_logo.png"
               width="125"
               height="140"
               alt="HeapOverflow"
