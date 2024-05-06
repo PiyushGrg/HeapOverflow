@@ -71,7 +71,7 @@ function ProfileTabs({askedQ, answeredQ, savedQ,commentedQ,mongoId}: ProfileTabs
     );
 
   return (
-    <Tabs color='primary' onSelectionChange={(key)=>router.push(`/profile?tab=${key}`)}>
+    <Tabs color='primary' onSelectionChange={(key)=>router.push(`/profile?tab=${key}`)} fullWidth size='sm'>
         <Tab title="Questions Asked" key="asked">
           <div className='flex flex-col gap-5'>
             {askedQ.map((question) => (
