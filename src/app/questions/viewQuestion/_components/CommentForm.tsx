@@ -55,7 +55,7 @@ function CommentForm({type='add',answer,showCommentForm,setShowCommentForm,reloa
     >   
         <ModalContent>
             <div className='p-5'>
-                <h1 className='text-primary text-2xl'>
+                <h1 className='text-primary dark:text-dark-primary text-2xl'>
                     {type === 'add' ? 'Add Comment' : 'Edit Comment'}
                 </h1>
                 
@@ -66,8 +66,8 @@ function CommentForm({type='add',answer,showCommentForm,setShowCommentForm,reloa
                 />
 
                 <div className='flex justify-end gap-5 mt-5'>
-                    <Button onClick={()=>setShowCommentForm(false)}>Cancel</Button>
-                    <Button color='primary' isLoading={loading} onClick={onSave}>Submit</Button>
+                    <Button onClick={()=>setShowCommentForm(false)} className='dark:bg-gray-500'>Cancel</Button>
+                    <Button color='primary' isLoading={loading} onClick={onSave} className='dark:bg-dark-primary'>Submit</Button>
                 </div>
 
             </div>

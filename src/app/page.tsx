@@ -46,7 +46,7 @@ export default async function Home({searchParams}: HomeProps) {
   return (
     <div>
       <div className="flex justify-end">
-        <Link href="/questions/newQuestion" className="bg-primary text-white px-4 py-2 rounded">Ask a question</Link>
+        <Link href="/questions/newQuestion" className="bg-primary dark:bg-dark-primary text-white px-4 py-2 rounded">Ask a question</Link>
       </div>
 
       <Filter/>

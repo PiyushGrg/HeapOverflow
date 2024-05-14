@@ -21,7 +21,7 @@ async function userInfo({ params }: userInfoProps) {
   
   return (
     <div>
-      <div className="bg-gray-100 p-5 flex gap-5 items-center">
+      <div className="bg-gray-100 p-5 flex gap-5 items-center dark:bg-gray-700">
         <Image
           src={userData?.profilePicUrl!}
           height={70}
@@ -31,17 +31,17 @@ async function userInfo({ params }: userInfoProps) {
         />
 
         <div className="flex flex-col">
-          <h1 className="text-primary text-xl uppercase font-semibold">
+          <h1 className="text-primary text-xl uppercase font-semibold dark:text-dark-primary">
             {userData?.name}
           </h1>
-          <p className="text-gray-600 text-sm">{userData?.email}</p>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600 text-sm dark:text-gray-300">{userData?.email}</p>
+          <p className="text-gray-600 text-sm dark:text-gray-300">
             {questions.length} Questions Asked
           </p>
         </div>
       </div>
 
-      <h1 className="mt-5">
+      <h1 className="mt-5 dark:text-gray-100">
         Questions Asked By {userData?.name} ({questions.length})
       </h1>
 

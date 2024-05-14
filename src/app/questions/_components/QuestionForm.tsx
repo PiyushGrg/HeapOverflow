@@ -6,6 +6,7 @@ import CodeMirror from '@uiw/react-codemirror';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
 
 interface QuestionFormProps {
     initialData?: any;
@@ -25,6 +26,10 @@ function QuestionForm({initialData=null, type='add'}: QuestionFormProps) {
     });
 
     const router = useRouter();
+    const {theme} = useTheme();
+
+    const isDarkMode = theme === 'dark';
+    const chipColor = isDarkMode ? 'secondary' : 'primary';
 
     const onSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -84,12 +89,12 @@ function QuestionForm({initialData=null, type='add'}: QuestionFormProps) {
                     setQuestion({...question,tags:[...question.tags,newTag]});
                     setNewTag('');
                 }
-            }}>Add Tag</Button>
+            }} className='dark:bg-gray-700'>Add Tag</Button>
         </div>
 
         <div className='flex gap-5'>
             {question.tags.map((tag:string, index:number) => (
-                <Chip key={index} color='primary' onClose={()=> {
+                <Chip key={index} color={chipColor} onClose={()=> {
                     setQuestion({...question,tags:question.tags.filter((t:any)=> t!==tag)});
                 }}>{tag}</Chip>
             ))}
@@ -100,7 +105,7 @@ function QuestionForm({initialData=null, type='add'}: QuestionFormProps) {
             onChange={(e)=> setShowCode(!showCode)}
             isSelected={showCode}
         >
-            <span className='text-gray-600'>Do you want to add code?</span>
+            <span className='text-gray-600 dark:text-gray-400'>Do you want to add code?</span>
         </Switch>
 
         {showCode && (
@@ -115,8 +120,8 @@ function QuestionForm({initialData=null, type='add'}: QuestionFormProps) {
 
 
         <div className='flex justify-end gap-5'>
-            <Button onClick={()=>router.back()}>Cancel</Button>
-            <Button type='submit' color='primary' isLoading={loading}>Save</Button>
+            <Button onClick={()=>router.back()} className='dark:bg-gray-500'>Cancel</Button>
+            <Button type='submit' color='primary' isLoading={loading} className='dark:bg-dark-primary'>Save</Button>
         </div>
     </form>
   )

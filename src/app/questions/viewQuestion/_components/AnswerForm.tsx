@@ -64,7 +64,7 @@ function AnswerForm({showForm,setShowForm,type='add',questionId,initialData}: An
     <Modal isOpen={showForm} onOpenChange={()=>setShowForm(false)} size='4xl' placement='center' scrollBehavior='inside' backdrop='blur'>
         <ModalContent className="overflow-y-auto h-[300px]">
             <div className='p-5 flex flex-col gap-5'>
-                {type === 'add' ? <h1 className='text-primary text-xl'>Write an answer</h1> : <h1 className='text-primary text-xl'>Edit answer</h1>}
+                {type === 'add' ? <h1 className='text-primary dark:text-dark-primary text-xl'>Write an answer</h1> : <h1 className='text-primary dark:text-dark-primary text-xl'>Edit answer</h1>}
 
                 <Textarea placeholder='Description' 
                     value={answer.description} 
@@ -92,8 +92,8 @@ function AnswerForm({showForm,setShowForm,type='add',questionId,initialData}: An
                 )}
 
                 <div className='flex justify-end gap-5'>
-                    <Button onClick={()=>setShowForm(false)}>Cancel</Button>
-                    <Button color='primary' isLoading={loading} onClick={onSave}>Submit</Button>
+                    <Button onClick={()=>setShowForm(false)} className='dark:bg-gray-500'>Cancel</Button>
+                    <Button color='primary' isLoading={loading} onClick={onSave} className='dark:bg-dark-primary'>Submit</Button>
                 </div>
 
             </div>

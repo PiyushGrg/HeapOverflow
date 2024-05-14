@@ -1,5 +1,6 @@
 "use client";
 import { Chip, Input } from '@nextui-org/react';
+import { useTheme } from 'next-themes';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 
@@ -9,6 +10,10 @@ function Filter() {
   const searchParams = useSearchParams();
   const [search, setSearch] = React.useState('');
   const tag = searchParams.get('tag');
+  const {theme} = useTheme();
+
+  const isDarkMode = theme === 'dark';
+  const colorChip = isDarkMode ? 'secondary' : 'primary';
 
   useEffect(() => {
     const redirectTimeout = setTimeout(() => {
@@ -34,7 +39,7 @@ function Filter() {
 
         <div className='mt-5'>
           {tag && (
-           <h1>Showing results for tag: <Chip color='primary' onClose={()=>router.push("/")}>{tag}</Chip></h1> 
+            <h1>Showing results for tag: <Chip color={colorChip} onClose={()=>router.push("/")}>{tag}</Chip></h1> 
           )}
         </div>
     </div>

@@ -3,6 +3,7 @@ import "./globals.css";
 import UIProvider from "@/Providers/UIProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 import LayoutProvider from "@/Providers/LayoutProvider";
+import Theme from "@/Providers/Theme";
 
 export const metadata: Metadata = {
   title: "HeapOverflow",
@@ -16,12 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body>
           <UIProvider>
-            <LayoutProvider>
-              {children}
-            </LayoutProvider>
+            <Theme>
+              <LayoutProvider>
+                {children}
+              </LayoutProvider>
+            </Theme>
           </UIProvider>
         </body>
       </html>

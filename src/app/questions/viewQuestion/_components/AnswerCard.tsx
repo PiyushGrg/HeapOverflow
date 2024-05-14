@@ -66,24 +66,24 @@ function AnswerCard({answer,mongoId}:{answer:IAnswer,mongoId:string}) {
   };
 
   return (
-    <div className='border bg-gray-100 p-3 flex flex-col gap-2 border-gray-500'>
+    <div className='border bg-gray-100 p-3 flex flex-col gap-2 border-gray-500 dark:bg-gray-800 dark:border-gray-600 dark:hover:border-gray-400'>
         <div className='flex gap-10 text-xs'>
-            <span>Answered On <span className='text-primary'>{dateTimeFormat(answer.updatedAt)}</span> </span>
-            <span>By <span className='text-secondary'>{answer.user.name}</span> </span>
+            <span>Answered On <span className='text-primary dark:text-dark-primary'>{dateTimeFormat(answer.updatedAt)}</span> </span>
+            <span>By <span className='text-secondary dark:text-dark-secondary'>{answer.user.name}</span> </span>
         </div>
-        <p className='text-sm text-gray-600'>{answer.description}</p>
+        <p className='text-sm text-gray-600 dark:text-gray-300'>{answer.description}</p>
 
         {answer.code && <ViewCode code={answer.code} />}
 
         <div className='flex justify-between items-center mt-5'>
           
           {!showComments ?
-            <Button color='primary' variant='light' size='sm' isLoading={loading} onClick={()=>{
+            <Button color='primary' variant='light' size='sm' className='dark:hover:bg-dark-primary/50 dark:text-dark-primary' isLoading={loading} onClick={()=>{
               setShowComments(true);
               getComments();
             }}>View Comments</Button>  : 
              
-            <Button color='primary' variant='light' size='sm' isLoading={loading} onClick={()=>setShowComments(false)}>Hide Comments</Button>
+            <Button color='primary' variant='light' size='sm' className='dark:hover:bg-dark-primary/50 dark:text-dark-primary' isLoading={loading} onClick={()=>setShowComments(false)}>Hide Comments</Button>
           }
 
           <div className='flex gap-5'>
@@ -104,16 +104,16 @@ function AnswerCard({answer,mongoId}:{answer:IAnswer,mongoId:string}) {
             <Button size='sm' onClick={()=>{
               setShowCommentForm(true);
               setCommentType('add');
-            }} color='secondary' variant='light'>Add Comment</Button>
+            }} color='secondary' variant='light' className='dark:hover:bg-dark-secondary/50 dark:text-dark-secondary'>Add Comment</Button>
           </div>
         </div>
 
         {showComments && comments.length>0 && (
           <div className='flex flex-col gap-2 ml-5 mt-5'>
             {comments.map((comment:any)=>(
-              <div key={comment._id} className='border bg-gray-200 p-2 flex flex-col gap-2 border-gray-300'>
+              <div key={comment._id} className='border bg-gray-200 p-2 flex flex-col gap-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600'>
 
-                <p className='text-sm text-gray-600'>{comment.text}</p>
+                <p className='text-sm text-gray-600 dark:text-gray-300'>{comment.text}</p>
                 <div className='flex justify-between mt-5 items-center flex-wrap gap-5'>
                   <div className='flex gap-5 flex-wrap'>
                     {comment.user._id === mongoId && (
@@ -133,9 +133,9 @@ function AnswerCard({answer,mongoId}:{answer:IAnswer,mongoId:string}) {
                       </>
                     )}
                   </div>
-                  <div className='flex gap-5 text-xs'>
-                    <span>Commented On <span className='text-primary'>{dateTimeFormat(comment.updatedAt)}</span> </span>
-                    <span>By <span className='text-secondary'>{comment.user.name}</span> </span>
+                  <div className='flex gap-5 text-xs dark:text-gray-400'>
+                    <span>Commented On <span className='text-primary dark:text-dark-primary'>{dateTimeFormat(comment.updatedAt)}</span> </span>
+                    <span>By <span className='text-secondary dark:text-dark-secondary'>{comment.user.name}</span> </span>
                   </div>
                 </div>
 

@@ -14,6 +14,10 @@ const config: Config = {
       colors: {
         primary: "#053B50",
         secondary: "#A73121",
+        dark: {
+          primary: "#ff4d4d",
+          secondary: "#03AED2"
+        }
       },
     },
   },

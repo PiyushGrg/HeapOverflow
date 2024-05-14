@@ -56,6 +56,7 @@ function ViewQuesFooter({question,mongoId}:{question:IQuestion,mongoId:string}) 
                 {question.savedBy.includes(mongoId) && (
                     <Button size='sm' color='primary' onClick={()=>removeFromSave()}
                         isLoading={loading}
+                        className='dark:bg-dark-primary'
                     >
                         Discard
                     </Button>
@@ -64,6 +65,7 @@ function ViewQuesFooter({question,mongoId}:{question:IQuestion,mongoId:string}) 
                 {!question.savedBy.includes(mongoId) && (
                     <Button size='sm' color='primary' onClick={()=>onSave()}
                         isLoading={loading}
+                        className='dark:bg-dark-primary'
                     >
                         Save
                     </Button>
@@ -71,6 +73,7 @@ function ViewQuesFooter({question,mongoId}:{question:IQuestion,mongoId:string}) 
 
                 <Button size='sm' color='secondary' onClick={()=>setShowAnswerModal(true)}
                     isDisabled={mongoId===question.user._id}
+                    className='dark:bg-dark-secondary'
                 >
                     Write an Answer
                 </Button>
