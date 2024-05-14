@@ -81,12 +81,12 @@ function AnswerCard({answer,mongoId}:{answer:IAnswer,mongoId:string}) {
             <Button color='primary' variant='light' size='sm' className='dark:hover:bg-dark-primary/50 dark:text-dark-primary' isLoading={loading} onClick={()=>{
               setShowComments(true);
               getComments();
-            }}>View Comments</Button>  : 
+            }}>See Comments</Button>  : 
              
             <Button color='primary' variant='light' size='sm' className='dark:hover:bg-dark-primary/50 dark:text-dark-primary' isLoading={loading} onClick={()=>setShowComments(false)}>Hide Comments</Button>
           }
 
-          <div className='flex gap-5'>
+          <div className='flex sm:gap-5'>
             {answer.user._id === mongoId && 
               <>
 

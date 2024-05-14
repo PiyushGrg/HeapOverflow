@@ -52,8 +52,9 @@ function CommentForm({type='add',answer,showCommentForm,setShowCommentForm,reloa
         isOpen={showCommentForm}
         onOpenChange={()=>setShowCommentForm(false)}
         size='2xl'
+        placement='center' scrollBehavior='inside'
     >   
-        <ModalContent>
+        <ModalContent className="overflow-y-auto h-[210px]">
             <div className='p-5'>
                 <h1 className='text-primary dark:text-dark-primary text-2xl'>
                     {type === 'add' ? 'Add Comment' : 'Edit Comment'}
