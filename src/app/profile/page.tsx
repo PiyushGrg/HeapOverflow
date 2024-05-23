@@ -20,23 +20,10 @@ async function ProfilePage({searchParams}:{searchParams: any}) {
   let savedQ : IQuestion[] = [];
   let commentedQ : IQuestion[] = [];
 
-  const tab = searchParams.tab || 'asked';
-
-  if (tab === 'asked') {
-    askedQ = await Question.find({user: mongoId}).sort({createdAt: -1}).populate("user");
-  } 
-
-  if(tab === 'answered') {
-    answeredQ = await Answer.find({user:mongoId}).sort({updatedAt: -1}).populate("question");
-  }
-
-  if(tab === 'saved') {
-    savedQ = await Question.find({savedBy : {$in: [mongoId]}});
-  }
-
-  if(tab === 'commented') {
-    commentedQ = await Comment.find({user: mongoId}).sort({updatedAt: -1}).populate("question");
-  }
+  askedQ = await Question.find({user: mongoId}).sort({createdAt: -1}).populate("user");
+  answeredQ = await Answer.find({user:mongoId}).sort({updatedAt: -1}).populate("question");
+  savedQ = await Question.find({savedBy : {$in: [mongoId]}});
+  commentedQ = await Comment.find({user: mongoId}).sort({updatedAt: -1}).populate("question");
 
   return (
     <div>
