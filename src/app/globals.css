@@ -1,12 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-*{
-    font-family: 'Montserrat', sans-serif !important;
-}
-
 
 /* Remove box shadow and watermark */
 .cl-card {
